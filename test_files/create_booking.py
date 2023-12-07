@@ -13,7 +13,12 @@ class Create_Booking(unittest.TestCase):
     # create endpoint test case
     def test_response(self):
         request = Methods(config.BASE_URL)
-        payload = json.dumps(config.CREATE_BOOKING, default=self.custom_encoder)
+
+        # reading the json file - request body
+        with open('data/create_booking.json') as f:
+            data = json.load(f)
+
+        payload = json.dumps(data)
         response = request.post_method(config.ENDPOINTS['all_bookings'], payload)
         payload_dict = json.loads(payload)
 
