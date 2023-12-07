@@ -26,3 +26,7 @@ Run the tests using the following command from the root of the repo
 ## Open source
 
 Push to main is disaled. To make changes/improve the code please create a PR and it can be added in
+
+## Usage
+
+The idea is provide a base automation framework thta can be used for creating api tests. To do that all that needs to be done is to replace the existing tests with required ones and in the framework supported format and you should be good to go
