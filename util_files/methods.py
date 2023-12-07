@@ -38,12 +38,12 @@ class Methods:
 
     # put method
     def put_method(self, endpoint, payload):
-        token = self.generate_token()
         url = self.base_url + endpoint
 
+        # in this case, we are using a hardcoded token because the put request of restful booker is designed this way. Ideally, we should use the token generation method.
         headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Basic ' + token
+            'Authorization': 'Basic YWRtaW46cGFzc3dvcmQxMjM=' 
         }
 
         response = requests.request("PUT", url, headers=headers, data=payload)

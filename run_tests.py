@@ -5,6 +5,8 @@ from datetime import datetime
 from test_files.ping import Ping
 from test_files.get_all_bookings import Get_All_Bookings
 from test_files.create_booking import Create_Booking
+from test_files.get_booking import Get_Booking
+from test_files.update_booking import Update_Booking
 
 if __name__ == '__main__':
 
@@ -15,6 +17,8 @@ if __name__ == '__main__':
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(Ping))
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(Get_All_Bookings))
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(Create_Booking))
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(Get_Booking))
+    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(Update_Booking))
 
     # Getting current date and time for results directory
     now = datetime.now()

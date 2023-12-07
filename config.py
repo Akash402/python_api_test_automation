@@ -4,5 +4,6 @@ PASSWORD = "password123"
 ENDPOINTS = {
     "ping": "ping",
     "all_bookings": "booking",
-    "authentication": "auth"
+    "authentication": "auth",
+    "get_booking": "booking/"
 }
