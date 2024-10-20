@@ -79,3 +79,16 @@ def delete_method(base_url, endpoint):
 
     response = requests.request("DELETE", url, headers=headers, data=payload)
     return(response)
+
+# read json file
+def read_json_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            json_data = json.load(file)
+            return json_data
+    except FileNotFoundError:
+        print(f"Error: File '{file_path}' not found.")
+        return None
+    except json.JSONDecodeError:
+        print(f"Error: Unable to parse JSON in file '{file_path}'.")
+        return None

@@ -7,3 +7,5 @@ ENDPOINTS = {
     "authentication": "auth",
     "get_booking": "booking/"
 }
+USERNAME = "admin"
+PASSWORD = "password123"

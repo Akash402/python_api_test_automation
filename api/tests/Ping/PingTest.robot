@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../keywords/PingKeywords.robot
+Resource    ../../keywords/PingKeywords.robot
 
 *** Test Cases ***
 Testing Ping

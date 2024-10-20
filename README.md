@@ -19,9 +19,9 @@ Installation is very easy. Python 3 and pip are assumeed to be pre-installed
 
 ## Running
 
-Run the tests using the following command from the root of the repo
+Run the tests using the following command robot from the root of the repo
 
-`python run_tests.py` or `python3 run_tests.py` depending on how your python is configured
+`robot -d results .\api\tests\Ping\PingTest.robot`
 
 ## Open source
 
@@ -29,4 +29,4 @@ Push to main is disaled. To make changes/improve the code please create a PR and
 
 ## Usage
 
-The idea is provide a base automation framework thta can be used for creating api tests. To do that all that needs to be done is to replace the existing tests with required ones and in the framework supported format and you should be good to go
+The idea is provide a base automation framework that can be used for creating api tests. To do that all that needs to be done is to replace the existing tests with required ones and in the framework supported format and you should be good to go
