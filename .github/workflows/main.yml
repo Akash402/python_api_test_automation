@@ -1,1 +1,45 @@
 
+name: Restful Booker API Tests
+
+on:
+  push:
+    branches:
+      - main
+
+  # Trigger on a schedule: every weekday (Monday to Friday) at 9:00 AM UTC
+  schedule:
+    - cron: '0 9 * * *'
+  
+  # Trigger manually via GitHub UI
+  workflow_dispatch:
+
+jobs:
+  robotframework-tests:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Step 1: Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    
+    # Step 2: Set up Python environment and install dependencies
+    - name: Set up Python 3.8.3
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8.3'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    # Step 3: Run Robot Framework tests
+    - name: Run Robot Framework tests
+      run: robot -d results api/tests
+    
+    # Step 4: Save the test results as artifacts
+    - name: Upload Robot Framework test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: restful-booker-api-tests
+        path: results/
