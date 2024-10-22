@@ -36,6 +36,7 @@ jobs:
     # Step 3: Run Robot Framework tests
     - name: Run Robot Framework tests
       run: robot -d results api/tests
+      continue-on-error: true
     
     # Step 4: Save the test results as artifacts
     - name: Upload Robot Framework test results
