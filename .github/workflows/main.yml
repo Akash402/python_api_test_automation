@@ -15,7 +15,7 @@ on:
 
 jobs:
   robotframework-tests:
-    runs-on: ubuntu-latest
+    runs-on: akash-self-hosted
     
     steps:
     # Step 1: Checkout the repository
