@@ -1,5 +1,6 @@
 *** Settings ***
 Resource    ../../keywords/PingKeywords.robot
+Test Tags   smoke
 
 *** Test Cases ***
 Testing Ping

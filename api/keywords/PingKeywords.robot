@@ -1,6 +1,6 @@
 *** Settings ***
-Variables    ../../config.py
-Library    ../../methods.py
+Variables    ../../lib/config.py
+Library    ../../lib/methods.py
 
 *** Keywords ***
 Test Successful Ping to Restful booker
