@@ -30,8 +30,9 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh '''
-                    .venv/bin/pip install --upgrade pip
-                    .venv/bin/pip install -r requirements.txt
+                    python3 -m venv "$WORKSPACE/.venv"
+                    "$WORKSPACE/.venv/bin/pip" install --upgrade pip
+                    "$WORKSPACE/.venv/bin/pip" install -r requirements.txt
                 '''
             }
         }
@@ -40,7 +41,7 @@ pipeline {
             parallel {
                 stage('Regression Tests') {
                     steps {
-                        sh '.venv/bin/pabot --processes 4 -d results --include regression api/tests/examples || true'
+                        sh '"$WORKSPACE/.venv/bin/pabot" --processes 4 -d results --include regression api/tests/examples || true'
                     }
                 }
             }
@@ -48,13 +49,13 @@ pipeline {
 
         stage('Retry failed tests') {
             steps {
-                sh '.venv/bin/pabot --processes 4 -d results/rerun --rerunfailed results/output.xml --include regression api/tests/examples || true'
+                sh '"$WORKSPACE/.venv/bin/pabot" --processes 4 -d results/rerun --rerunfailed results/output.xml --include regression api/tests/examples || true'
             }
         }
 
         stage('Merge results') {
             steps {
-                sh '.venv/bin/rebot --merge -d results results/output.xml results/rerun/output.xml || true'
+                sh '"$WORKSPACE/.venv/bin/rebot" --merge -d results results/output.xml results/rerun/output.xml || true'
             }
         }
     }
