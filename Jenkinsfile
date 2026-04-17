@@ -7,20 +7,14 @@ pipeline {
     }
 
     environment {
-        ENV             = "${params.ENV ?: 'dev'}"
-        DEV_URL         = "${params.DEV_URL ?: 'https://restful-booker.herokuapp.com/'}"
-        STAGING_URL     = "${params.STAGING_URL ?: ''}"
-        PROD_URL        = "${params.PROD_URL ?: ''}"
-        AUTH_TYPE       = "${params.AUTH_TYPE ?: 'basic'}"
-        API_USERNAME    = credentials('API_USERNAME')
-        API_PASSWORD    = credentials('API_PASSWORD')
-        // OAuth — configure these Jenkins credentials if AUTH_TYPE=oauth
-        // TOKEN_URL    = credentials('TOKEN_URL')
-        // CLIENT_ID    = credentials('CLIENT_ID')
-        // CLIENT_SECRET = credentials('CLIENT_SECRET')
-        // API Key — configure these if AUTH_TYPE=api_key
-        // API_KEY      = credentials('API_KEY')
-        API_KEY_HEADER  = "${params.API_KEY_HEADER ?: 'x-api-key'}"
+        ENV            = "${params.ENV ?: 'dev'}"
+        DEV_URL        = "${params.DEV_URL ?: 'https://restful-booker.herokuapp.com/'}"
+        STAGING_URL    = "${params.STAGING_URL ?: ''}"
+        PROD_URL       = "${params.PROD_URL ?: ''}"
+        AUTH_TYPE      = "${params.AUTH_TYPE ?: 'basic'}"
+        API_USERNAME   = "${params.API_USERNAME ?: ''}"
+        API_PASSWORD   = "${params.API_PASSWORD ?: ''}"
+        API_KEY_HEADER = "${params.API_KEY_HEADER ?: 'x-api-key'}"
     }
 
     parameters {
@@ -35,6 +29,7 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
+
                 sh '''
                     python3 -m pip install --upgrade pip
                     pip install -r requirements.txt
