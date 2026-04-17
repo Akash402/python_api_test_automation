@@ -30,7 +30,6 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh '''
-                    python3 -m venv "$WORKSPACE/.venv"
                     "$WORKSPACE/.venv/bin/pip" install --upgrade pip
                     "$WORKSPACE/.venv/bin/pip" install -r requirements.txt
                 '''
