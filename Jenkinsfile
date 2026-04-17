@@ -30,7 +30,6 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh '''
-                     apt-get install -y python3.13-venv
                     .venv/bin/pip install --upgrade pip
                     .venv/bin/pip install -r requirements.txt
                 '''
